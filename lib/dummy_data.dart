@@ -41,6 +41,7 @@ const dummyMeals = [
     categories: [
       'c1',
       'c2',
+      'c5',
     ],
     title: 'Spaghetti with Tomato Sauce',
     iamgeUrl:
@@ -164,5 +165,77 @@ const dummyMeals = [
     isLactoseFree: false,
     isVegan: false,
     isVegeterian: false,
-  )
+  ),
+  Meal(
+    id: 'm5',
+    categories: [
+      'c2'
+          'c5',
+      'c10',
+    ],
+    title: 'Salad with Smoked Salmon',
+    iamgeUrl:
+        'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
+    imgredients: [
+      'Arugula',
+      'Lamb\'s Lettuce',
+      'Parsley',
+      'Fennel',
+      '200g Smoked Salmon',
+      'Mustard',
+      'Balsamic Vinegar',
+      'Olive Oil',
+      'Salt and Pepper'
+    ],
+    steps: [
+      'Wash and cut salad and herbs',
+      'Dice the salmon',
+      'Process mustard, vinegar and olive oil into a dessing',
+      'Prepare the salad',
+      'Add salmon cubes and dressing'
+    ],
+    duration: 15,
+    complexity: Complexity.simple,
+    affordability: Affordability.luxurious,
+    isGluttenFree: true,
+    isLactoseFree: true,
+    isVegan: false,
+    isVegeterian: false,
+  ),
+  Meal(
+    id: 'm6',
+    categories: [
+      'c6',
+      'c10',
+    ],
+    title: 'Delicious Orange Mousse',
+    iamgeUrl:
+        'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
+    imgredients: [
+      '4 Sheets of Gelatine',
+      '150ml Orange Juice',
+      '80g Sugar',
+      '300g Yoghurt',
+      '200g Cream',
+      'Orange Peel',
+    ],
+    steps: [
+      'Dissolve gelatine in pot',
+      'Add orange juice and sugar',
+      'Take pot off the stove',
+      'Add 2 tablespoons of yoghurt',
+      'Stir gelatin under remaining yoghurt',
+      'Cool everything down in the refrigerator',
+      'Whip the cream and lift it under die orange mass',
+      'Cool down again for at least 4 hours',
+      'Serve with orange peel',
+    ],
+    duration: 240,
+    complexity: Complexity.hard,
+    affordability: Affordability.affordable,
+    isGluttenFree: true,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegeterian: true,
+  ),
 ];
