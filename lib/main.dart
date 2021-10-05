@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/screens/categories_screen.dart';
+import 'package:meal_app/screens/category_meals_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,6 +42,11 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       home: CategoriesScreen(),
+      // routes: {
+      //   CategoriesScreen.routeName: (ctx) => CategoriesScreen(), //  Main screen
+      //   CategoryMealsScreen.routeName: (ctx) =>
+      //       CategoryMealsScreen() //  Meals screen
+      // },
     );
   }
 }
