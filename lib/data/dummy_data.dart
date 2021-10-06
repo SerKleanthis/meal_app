@@ -44,7 +44,7 @@ const dummyMeals = [
       'c5',
     ],
     title: 'Spaghetti with Tomato Sauce',
-    iamgeUrl:
+    imageUrl:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
     imgredients: [
       '4 Tomatoes',
@@ -77,7 +77,7 @@ const dummyMeals = [
       'c2',
     ],
     title: 'Toast Hawaii',
-    iamgeUrl:
+    imageUrl:
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     imgredients: [
       '1 Slice White Bread',
@@ -106,7 +106,7 @@ const dummyMeals = [
       'c3',
     ],
     title: 'Classic Hamburger',
-    iamgeUrl:
+    imageUrl:
         'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
     imgredients: [
       '300g Cattle Hack',
@@ -137,7 +137,7 @@ const dummyMeals = [
       'c4',
     ],
     title: 'Wiener Schnitzel',
-    iamgeUrl:
+    imageUrl:
         'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
     imgredients: [
       '8 Veal Cutlets',
@@ -174,7 +174,7 @@ const dummyMeals = [
       'c10',
     ],
     title: 'Salad with Smoked Salmon',
-    iamgeUrl:
+    imageUrl:
         'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
     imgredients: [
       'Arugula',
@@ -209,7 +209,7 @@ const dummyMeals = [
       'c10',
     ],
     title: 'Delicious Orange Mousse',
-    iamgeUrl:
+    imageUrl:
         'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
     imgredients: [
       '4 Sheets of Gelatine',

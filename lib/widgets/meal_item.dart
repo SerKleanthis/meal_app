@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class MealItem extends StatelessWidget {
-  final String title;
-  final String imageUrl;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  // final String title;
+  // final String imageUrl;
+  // final int duration;
+  // final Complexity complexity;
+  // final Affordability affordability;
+  final Meal meal;
 
-  const MealItem({
-    required this.title,
-    required this.imageUrl,
-    required this.duration,
-    required this.complexity,
-    required this.affordability,
-  });
+  const MealItem({required this.meal
+      // required this.title,
+      // required this.imageUrl,
+      // required this.duration,
+      // required this.complexity,
+      // required this.affordability,
+      });
 
   void selectMeal() {}
 
@@ -38,14 +39,64 @@ class MealItem extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    imageUrl,
+                    meal.imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
+                Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: Container(
+                    width: 300,
+                    color: Colors.black54,
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                    child: Text(
+                      meal.title,
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: ThemeData().colorScheme.onPrimary,
+                      ),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                ),
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Row(
+                    children: [
+                      const Icon(Icons.schedule),
+                      const SizedBox(width: 6),
+                      Text('${meal.duration.toString()}\' mins'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.work),
+                      const SizedBox(width: 6),
+                      // ignore: unnecessary_string_interpolations
+                      Text('${meal.getComplexityToString}'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.euro),
+                      const SizedBox(width: 6),
+                      // ignore: unnecessary_string_interpolations
+                      Text('${meal.getAffordabilityToString}'),
+                    ],
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

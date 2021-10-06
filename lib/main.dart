@@ -15,10 +15,10 @@ class _MyAppState extends State<MyApp> {
       title: 'DeliMeals',
       theme: ThemeData(
         colorScheme: ColorScheme(
-          primary: Colors.purple.shade400,
-          primaryVariant: Colors.purple,
-          secondary: Colors.amber.shade400,
-          secondaryVariant: Colors.amber,
+          primary: Colors.red.shade300,
+          primaryVariant: Colors.red.shade500,
+          secondary: Colors.red.shade500,
+          secondaryVariant: Colors.red.shade700,
           surface: Colors.grey.shade200,
           background: Colors.white,
           error: Colors.red,
@@ -30,6 +30,8 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.light,
         ),
         // colorScheme.: Colors.amber,
+        // backgroundColor: Colors.amber,
+        scaffoldBackgroundColor: Colors.amber.shade50,
         fontFamily: 'Yaldevi',
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: const TextStyle(color: Colors.black),

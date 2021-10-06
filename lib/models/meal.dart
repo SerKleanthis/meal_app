@@ -6,7 +6,7 @@ class Meal {
   final String id;
   final List<String> categories;
   final String title;
-  final String iamgeUrl;
+  final String imageUrl;
   final List<String> imgredients;
   final List<String> steps;
   final int duration;
@@ -21,7 +21,7 @@ class Meal {
     required this.id,
     required this.categories,
     required this.title,
-    required this.iamgeUrl,
+    required this.imageUrl,
     required this.imgredients,
     required this.steps,
     required this.duration,
@@ -32,4 +32,40 @@ class Meal {
     required this.isVegan,
     required this.isVegeterian,
   });
+
+  // Complexity to string Getter
+  String get getComplexityToString {
+    String complexityToString = 'Unknown';
+
+    switch (complexity) {
+      case Complexity.simple:
+        complexityToString = 'Simple';
+        break;
+      case Complexity.challenging:
+        complexityToString = 'Challenging';
+        break;
+      case Complexity.hard:
+        complexityToString = 'hard';
+        break;
+    }
+    return complexityToString;
+  }
+
+  // Affordability to string Getter
+  String get getAffordabilityToString {
+    String affordabilityToString = 'Unknown';
+
+    switch (affordability) {
+      case Affordability.affordable:
+        affordabilityToString = 'Affordable';
+        break;
+      case Affordability.pricey:
+        affordabilityToString = 'Pricey';
+        break;
+      case Affordability.luxurious:
+        affordabilityToString = 'Luxurious';
+        break;
+    }
+    return affordabilityToString;
+  }
 }

@@ -10,7 +10,7 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryMeals = getCategoryMealsToList();
+    final mealsList = getCategoryMealsToList();
 
     return Scaffold(
       appBar: AppBar(
@@ -19,15 +19,9 @@ class MealsScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
-          return MealItem(
-            title: categoryMeals[index].title,
-            imageUrl: categoryMeals[index].iamgeUrl,
-            duration: categoryMeals[index].duration,
-            complexity: categoryMeals[index].complexity,
-            affordability: categoryMeals[index].affordability,
-          );
+          return MealItem(meal: mealsList[index]);
         },
-        itemCount: categoryMeals.length,
+        itemCount: mealsList.length,
       ),
     );
   }
