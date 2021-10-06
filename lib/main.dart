@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/route_generator.dart';
 import 'package:meal_app/screens/screen_categories.dart';
 import 'package:meal_app/screens/screen_meals.dart';
 
@@ -41,12 +42,9 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
       ),
-      home: CategoriesScreen(),
-      // routes: {
-      //   CategoriesScreen.routeName: (ctx) => CategoriesScreen(), //  Main screen
-      //   CategoryMealsScreen.routeName: (ctx) =>
-      //       CategoryMealsScreen() //  Meals screen
-      // },
+      // home: CategoriesScreen(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

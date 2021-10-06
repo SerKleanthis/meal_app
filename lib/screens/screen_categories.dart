@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/widgets/category_item.dart';
 import 'package:meal_app/dummy_data.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class InitialScreen extends StatelessWidget {
   // static const routeName = '/';
   @override
   Widget build(BuildContext context) {
