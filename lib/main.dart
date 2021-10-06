@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/route_generator.dart';
-import 'package:meal_app/screens/screen_categories.dart';
-import 'package:meal_app/screens/screen_meals.dart';
+import 'importing_all.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,15 +46,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-// class MyHomePage extends StatefulWidget {
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
