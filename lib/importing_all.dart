@@ -8,10 +8,14 @@ export './models/meal.dart';
 export './screens/screen_categories.dart';
 export './screens/screen_meals.dart';
 export './screens/screen_meal_details.dart';
+export './screens/screen_categories.dart';
+export './screens/screen_tabs.dart';
+export './screens/screen_favorites.dart';
 
 // Widgets
 export './widgets/category_item.dart';
 export './widgets/meal_item.dart';
+export './widgets/main_drawer.dart';
 
 // Data
 export './data/dummy_data.dart';

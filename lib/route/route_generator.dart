@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/importing_all.dart';
-import 'package:meal_app/models/meal.dart';
-import 'package:meal_app/screens/screen_categories.dart';
-import 'package:meal_app/screens/screen_meals.dart';
+import 'package:meal_app/screens/screen_favorites.dart';
+import '../importing_all.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
+        // return MaterialPageRoute(builder: (_) => InitialScreen());
+        return MaterialPageRoute(builder: (_) => TabsScreen());
+      case '/init':
         return MaterialPageRoute(builder: (_) => InitialScreen());
+      // return MaterialPageRoute(builder: (_) => TabsScreen());
       case '/meals':
         final args = settings.arguments as MealsScreen;
         if (args is MealsScreen) {
@@ -27,6 +29,8 @@ class RouteGenerator {
           return MaterialPageRoute(builder: (_) => MealDetailsScreen(args));
         }
         return _errorRoute();
+      case '/favorites':
+        return MaterialPageRoute(builder: (_) => FavoritesScreen());
       default:
         return _errorRoute();
     }

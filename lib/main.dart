@@ -19,11 +19,11 @@ class _MyAppState extends State<MyApp> {
           primaryVariant: Colors.red.shade500,
           secondary: Colors.red.shade500,
           secondaryVariant: Colors.red.shade700,
-          surface: Colors.grey.shade200,
+          surface: Colors.grey.shade400,
           background: Colors.white,
           error: Colors.red,
           onPrimary: Colors.white,
-          onSecondary: Colors.white,
+          onSecondary: Colors.amber,
           onSurface: Colors.black,
           onBackground: Colors.black,
           onError: Colors.black,
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       // home: CategoriesScreen(),
-      initialRoute: InitialScreen.routeName,
+      initialRoute: TabsScreen.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

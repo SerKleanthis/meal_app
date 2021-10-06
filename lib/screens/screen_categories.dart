@@ -2,29 +2,24 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class InitialScreen extends StatelessWidget {
-  static String routeName = '/';
+  static String routeName = '/init';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('DeliMeal'),
+    return GridView(
+      padding: const EdgeInsets.all(15),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
       ),
-      body: GridView(
-        padding: const EdgeInsets.all(15),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-        ),
-        children: dummyCategories
-            .map((d) => CategoryItem(
-                  d.id,
-                  d.title,
-                  d.color,
-                ))
-            .toList(),
-      ),
+      children: dummyCategories
+          .map((d) => CategoryItem(
+                d.id,
+                d.title,
+                d.color,
+              ))
+          .toList(),
     );
   }
 }

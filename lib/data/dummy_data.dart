@@ -33,6 +33,16 @@ const dummyCategories = [
     title: 'Brunch',
     color: Colors.orange,
   ),
+  Categoryy(
+    id: 'c7',
+    title: 'Launch',
+    color: Colors.amber,
+  ),
+  Categoryy(
+    id: 'c8',
+    title: 'Dinner',
+    color: Colors.grey,
+  ),
 ];
 
 const dummyMeals = [
