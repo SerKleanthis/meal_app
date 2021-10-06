@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       // home: CategoriesScreen(),
-      initialRoute: '/',
+      initialRoute: InitialScreen.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

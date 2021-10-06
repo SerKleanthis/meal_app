@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class InitialScreen extends StatelessWidget {
+  static String routeName = '/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

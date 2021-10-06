@@ -7,6 +7,7 @@ export './models/meal.dart';
 // Screens
 export './screens/screen_categories.dart';
 export './screens/screen_meals.dart';
+export './screens/screen_meal_details.dart';
 
 // Widgets
 export './widgets/category_item.dart';

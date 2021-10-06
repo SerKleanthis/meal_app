@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/importing_all.dart';
+import 'package:meal_app/models/meal.dart';
 import 'package:meal_app/screens/screen_categories.dart';
 import 'package:meal_app/screens/screen_meals.dart';
 
@@ -17,6 +19,12 @@ class RouteGenerator {
               args.color,
             ),
           );
+        }
+        return _errorRoute();
+      case '/details':
+        final args = settings.arguments as Meal;
+        if (args is Meal) {
+          return MaterialPageRoute(builder: (_) => MealDetailsScreen(args));
         }
         return _errorRoute();
       default:
