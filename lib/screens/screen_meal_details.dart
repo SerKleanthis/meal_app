@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class MealDetailsScreen extends StatelessWidget {
-  static String routeName = '/details';
+  static const routeName = '/details';
   final Meal meal;
 
   const MealDetailsScreen(this.meal);
@@ -27,7 +27,7 @@ class MealDetailsScreen extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context).textTheme.headline4,
       ),
     );
   }
@@ -56,7 +56,10 @@ class MealDetailsScreen extends StatelessWidget {
                 child: ListView.builder(
                   // shrinkWrap: true,
                   itemBuilder: (ctx, index) => Card(
-                    child: Text(meal.ingredients[index]),
+                    child: Text(
+                      meal.ingredients[index],
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ),
                   itemCount: meal.ingredients.length,
                 ),
@@ -72,7 +75,10 @@ class MealDetailsScreen extends StatelessWidget {
                       leading: CircleAvatar(
                         child: Text('# ${(index + 1)} '),
                       ),
-                      title: Text(meal.steps[index]),
+                      title: Text(
+                        meal.steps[index],
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
                     ),
                     const Divider(),
                   ],

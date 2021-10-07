@@ -31,6 +31,8 @@ class RouteGenerator {
         return _errorRoute();
       case '/favorites':
         return MaterialPageRoute(builder: (_) => FavoritesScreen());
+      case '/filters':
+        return MaterialPageRoute(builder: (_) => FilterScreen());
       default:
         return _errorRoute();
     }

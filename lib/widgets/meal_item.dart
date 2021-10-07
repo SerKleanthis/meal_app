@@ -79,7 +79,10 @@ class MealItem extends StatelessWidget {
                     children: [
                       const Icon(Icons.schedule),
                       const SizedBox(width: 6),
-                      Text('${meal.duration.toString()}\' mins'),
+                      Text(
+                        '${meal.duration.toString()}\' mins',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
                     ],
                   ),
                   Row(
@@ -87,7 +90,10 @@ class MealItem extends StatelessWidget {
                       const Icon(Icons.work),
                       const SizedBox(width: 6),
                       // ignore: unnecessary_string_interpolations
-                      Text('${meal.getComplexityToString}'),
+                      Text(
+                        '${meal.getComplexityToString}',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
                     ],
                   ),
                   Row(
@@ -95,7 +101,10 @@ class MealItem extends StatelessWidget {
                       const Icon(Icons.euro),
                       const SizedBox(width: 6),
                       // ignore: unnecessary_string_interpolations
-                      Text('${meal.getAffordabilityToString}'),
+                      Text(
+                        '${meal.getAffordabilityToString}',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
                     ],
                   )
                 ],

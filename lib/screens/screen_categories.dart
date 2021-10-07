@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class InitialScreen extends StatelessWidget {
-  static String routeName = '/init';
+  static const routeName = '/init';
   @override
   Widget build(BuildContext context) {
     return GridView(

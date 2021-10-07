@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
 class TabsScreen extends StatefulWidget {
-  static String routeName = '/';
+  static const routeName = '/';
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
@@ -45,9 +45,9 @@ class _TabsScreenState extends State<TabsScreen> {
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Theme.of(context).colorScheme.background,
-        selectedItemColor: Theme.of(context).colorScheme.onSecondary,
+        backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Theme.of(context).colorScheme.onPrimary,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
         currentIndex: _selectedPageIndex,
         type: BottomNavigationBarType.fixed,
         items: const [
