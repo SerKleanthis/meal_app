@@ -7,7 +7,7 @@ class FilterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filter'),
+        title: const Text('Filter'),
       ),
       body: null,
     );

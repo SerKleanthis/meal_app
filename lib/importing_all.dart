@@ -5,13 +5,13 @@ export './models/category.dart';
 export './models/meal.dart';
 
 // Screens
-export './screens/screen_categories.dart';
-export './screens/screen_meals.dart';
-export './screens/screen_meal_details.dart';
-export './screens/screen_categories.dart';
-export './screens/screen_tabs.dart';
-export './screens/screen_favorites.dart';
-export './screens/screen_filters.dart';
+export 'screens/categories_screen.dart';
+export 'screens/meals_screen.dart';
+export 'screens/meal_details_screen.dart';
+export 'screens/categories_screen.dart';
+export 'screens/tabs_screen.dart';
+export 'screens/favorites_screen.dart';
+export 'screens/filters_screen.dart';
 
 // Widgets
 export './widgets/category_item.dart';

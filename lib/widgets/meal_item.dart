@@ -84,8 +84,8 @@ class MealItem extends StatelessWidget {
                     children: [
                       const Icon(Icons.work),
                       const SizedBox(width: 6),
-                      // ignore: unnecessary_string_interpolations
                       Text(
+                        // ignore: unnecessary_string_interpolations
                         '${meal.getComplexityToString}',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
@@ -95,8 +95,8 @@ class MealItem extends StatelessWidget {
                     children: [
                       const Icon(Icons.euro),
                       const SizedBox(width: 6),
-                      // ignore: unnecessary_string_interpolations
                       Text(
+                        // ignore: unnecessary_string_interpolations
                         '${meal.getAffordabilityToString}',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),

@@ -25,9 +25,7 @@ class _MealsScreenState extends State<MealsScreen> {
         // backgroundColor: color,
       ),
       body: mealsList!.isEmpty
-          ? Center(
-              child: Lottie.asset('assets/images/plate.json'),
-            )
+          ? emptyList(context)
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return MealItem(
@@ -49,6 +47,29 @@ class _MealsScreenState extends State<MealsScreen> {
   void didChangeDependencies() {
     mealsList = getCategoryMealsToList();
     super.didChangeDependencies();
+  }
+
+  Widget emptyList(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints.expand(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Lottie.asset('assets/images/plate.json',
+              height: MediaQuery.of(context).size.height),
+          Positioned(
+            bottom: 160,
+            child: Text(
+              'It\'s Empty',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   List<Meal> getCategoryMealsToList() {
