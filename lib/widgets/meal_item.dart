@@ -1,26 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/screen_meal_details.dart';
 import '../importing_all.dart';
 
 class MealItem extends StatelessWidget {
-  // final String title;
-  // final String imageUrl;
-  // final int duration;
-  // final Complexity complexity;
-  // final Affordability affordability;
   final Meal meal;
+  final Function removeItem;
 
-  const MealItem({required this.meal
-      // required this.title,
-      // required this.imageUrl,
-      // required this.duration,
-      // required this.complexity,
-      // required this.affordability,
-      });
+  const MealItem({required this.meal, required this.removeItem});
 
   void selectMeal(BuildContext context) {
     Navigator.of(context)
-        .pushNamed(MealDetailsScreen.routeName, arguments: meal);
+        .pushNamed(MealDetailsScreen.routeName, arguments: meal)
+        .then((result) {
+      log(result.toString());
+      removeItem(result);
+    });
   }
 
   @override

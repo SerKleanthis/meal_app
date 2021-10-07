@@ -85,36 +85,13 @@ class MealDetailsScreen extends StatelessWidget {
                 ),
                 itemCount: meal.steps.length,
               ),
-            )
-
-            // Stack(
-            //   children: [
-            //     // Positioned(
-            //     //   bottom: 10,
-            //     //   right: 10,
-            //     //   child: Container(
-            //     //     width: 300,
-            //     //     color: Colors.black54,
-            //     //     padding:
-            //     //         const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            //     //     child: Text(
-            //     //       meal.title,
-            //     //       style: TextStyle(
-            //     //         fontSize: 25,
-            //     //         color: ThemeData().colorScheme.onPrimary,
-            //     //       ),
-            //     //       softWrap: true,
-            //     //       overflow: TextOverflow.fade,
-            //     //     ),
-            //     //   ),
-            //     // ),
-            //   ],
-            // ),
-            // ListView.builder(itemBuilder: (ctx, index){
-            //     return meal.imgredients[index];
-            // })),
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.delete),
+        onPressed: () => Navigator.of(context).pop(meal.id),
       ),
     );
   }

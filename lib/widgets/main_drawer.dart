@@ -60,8 +60,8 @@ class MainDrawer extends StatelessWidget {
                 'Settings',
                 style: Theme.of(context).textTheme.headline3,
               ),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(FilterScreen.routeName),
+              onTap: () => Navigator.of(context)
+                  .pushReplacementNamed(FilterScreen.routeName),
             ),
           ],
         ),
