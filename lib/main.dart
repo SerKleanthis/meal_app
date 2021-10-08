@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'importing_all.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserPreferences.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -9,6 +13,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Map<String, bool> filters = {
+    'gluten-free': false,
+    'lactose-free': false,
+    'vegan': false,
+    'vegeterian': false,
+  };
+
+  void _setFilters(Map<String, bool> filters) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

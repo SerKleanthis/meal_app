@@ -3,6 +3,7 @@
 // Models
 export './models/category.dart';
 export './models/meal.dart';
+export './models/user_preferences.dart';
 
 // Screens
 export 'screens/categories_screen.dart';

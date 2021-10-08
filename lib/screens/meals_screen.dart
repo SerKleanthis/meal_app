@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'dart:developer';
 import '../importing_all.dart';
 
 class MealsScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _MealsScreenState extends State<MealsScreen> {
 
   @override
   void didChangeDependencies() {
-    mealsList = getCategoryMealsToList();
+    mealsList = getMealsList();
     super.didChangeDependencies();
   }
 
@@ -55,27 +56,71 @@ class _MealsScreenState extends State<MealsScreen> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
       ),
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
         children: [
-          Lottie.asset('assets/images/plate.json',
-              height: MediaQuery.of(context).size.height),
-          Positioned(
-            bottom: 160,
-            child: Text(
-              'It\'s Empty',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+          LimitedBox(
+            maxHeight: MediaQuery.of(context).size.height * 0.7,
+            child: Lottie.asset('assets/images/plate.json'),
+          ),
+          Text(
+            'It\'s Empty',
+            style: Theme.of(context).textTheme.headline4,
           ),
         ],
       ),
     );
   }
 
-  List<Meal> getCategoryMealsToList() {
-    return dummyMeals.where((meal) {
-      return meal.categories.contains(widget.categoryId);
-    }).toList();
+  List<Meal>? getMealsList() {
+    List<Meal> mealsList = dummyMeals
+        .where((meal) => meal.categories.contains(widget.categoryId))
+        .toList();
+    var toRemove = [];
+
+    for (var meal in mealsList) {
+      log('${meal.isLactoseFree} - ${UserPreferences.isLactoseFree().toString()}');
+
+      if (UserPreferences.isLactoseFree()) {
+        if (!meal.isLactoseFree) {
+          setState(() {
+            toRemove.add(meal);
+          });
+        }
+      }
+
+      if (UserPreferences.isGlutenFree()) {
+        if (!meal.isGluttenFree) {
+          setState(() {
+            if (!toRemove.contains(meal)) {
+              toRemove.add(meal);
+            }
+          });
+        }
+      }
+
+      if (UserPreferences.isVegan()) {
+        if (!meal.isVegan) {
+          setState(() {
+            if (!toRemove.contains(meal)) {
+              toRemove.add(meal);
+            }
+          });
+        }
+      }
+
+      if (UserPreferences.isVegeterian()) {
+        if (!meal.isVegeterian) {
+          setState(() {
+            if (!toRemove.contains(meal)) {
+              toRemove.add(meal);
+            }
+          });
+        }
+      }
+    }
+
+    mealsList.removeWhere((element) => toRemove.contains(element));
+    return mealsList;
   }
 
   void _removeItem(String id) {
