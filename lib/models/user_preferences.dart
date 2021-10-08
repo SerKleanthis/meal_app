@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/material.dart';
 
 class UserPreferences {
   static late SharedPreferences _preferences;
@@ -6,6 +7,7 @@ class UserPreferences {
   static const _gluten = 'gluten-free';
   static const _vegan = 'vegan';
   static const _vegeterian = 'vegeterian';
+  static const _favorites = 'favorites';
 
   // Init
   static Future init() async =>
@@ -24,6 +26,9 @@ class UserPreferences {
   static Future setVegeterian(bool value) async =>
       await _preferences.setBool(_vegeterian, value);
 
+  static Future setFavorites(List<String> favorites) async =>
+      await _preferences.setStringList(_favorites, favorites);
+
   // Getters
   static bool isLactoseFree() => _preferences.getBool(_lactose) ?? false;
 
@@ -32,4 +37,6 @@ class UserPreferences {
   static bool isVegan() => _preferences.getBool(_vegan) ?? false;
 
   static bool isVegeterian() => _preferences.getBool(_vegeterian) ?? false;
+
+  static List<String>? getFavorites() => _preferences.getStringList(_favorites);
 }

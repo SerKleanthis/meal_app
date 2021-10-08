@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
@@ -32,6 +34,24 @@ class MealDetailsScreen extends StatelessWidget {
     );
   }
 
+  void addToFavorites(String mealId) {
+    // Get favorites
+    List<String> favorites = UserPreferences.getFavorites() ?? [];
+
+    favorites.add(mealId);
+
+    // Add a new one
+    UserPreferences.setFavorites(favorites.toSet().toList());
+
+    log('${UserPreferences.getFavorites()!.length}');
+  }
+
+  bool isInTheFavorites() {
+    List<String> favorites = UserPreferences.getFavorites() ?? [];
+
+    return favorites.contains(meal.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +61,31 @@ class MealDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              child: Image.network(
-                meal.imageUrl,
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.fill,
-              ),
+            Stack(
+              children: [
+                SizedBox(
+                  child: Image.network(
+                    meal.imageUrl,
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Positioned(
+                  height: 15,
+                  right: 15,
+                  child: !isInTheFavorites()
+                      ? IconButton(
+                          onPressed: () => addToFavorites(meal.id),
+                          icon: const Icon(Icons.star_border),
+                        )
+                      : IconButton(
+                          //TODO: add option for remove from favorites
+                          onPressed: () {},
+                          icon: const Icon(Icons.star),
+                        ),
+                ),
+              ],
             ),
             titledContainer(context, 'Ingredients'),
             buildContainer(

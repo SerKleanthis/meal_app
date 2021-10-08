@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'dart:developer';
 import '../importing_all.dart';
 
 class MealsScreen extends StatefulWidget {
@@ -78,8 +77,6 @@ class _MealsScreenState extends State<MealsScreen> {
     var toRemove = [];
 
     for (var meal in mealsList) {
-      log('${meal.isLactoseFree} - ${UserPreferences.isLactoseFree().toString()}');
-
       if (UserPreferences.isLactoseFree()) {
         if (!meal.isLactoseFree) {
           setState(() {
