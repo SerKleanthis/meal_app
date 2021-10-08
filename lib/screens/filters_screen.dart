@@ -16,10 +16,10 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   void initState() {
-    _isGlutenFree = UserPreferences.isGlutenFree() ?? false;
-    _isLactoseFree = UserPreferences.isLactoseFree() ?? false;
-    _isVegan = UserPreferences.isVegan() ?? false;
-    _isVegeterian = UserPreferences.isVegeterian() ?? false;
+    _isGlutenFree = UserPreferences.isGlutenFree();
+    _isLactoseFree = UserPreferences.isLactoseFree();
+    _isVegan = UserPreferences.isVegan();
+    _isVegeterian = UserPreferences.isVegeterian();
     super.initState();
   }
 
