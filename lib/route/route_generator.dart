@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/main.dart';
-import 'package:meal_app/screens/favorites_screen.dart';
-import 'package:meal_app/screens/settings_screen.dart';
 import '../importing_all.dart';
 
 class RouteGenerator {

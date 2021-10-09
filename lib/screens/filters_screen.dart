@@ -42,9 +42,9 @@ class _FilterScreenState extends State<FilterScreen> {
             child: ListView(
               children: [
                 SwitchListTile(
-                  title: Text('Glutten Free'),
+                  title: const Text('Glutten Free'),
                   value: _isGlutenFree,
-                  subtitle: Text('Include only gluten-free meals'),
+                  subtitle: const Text('Include only gluten-free meals'),
                   onChanged: (newValue) {
                     setState(() {
                       _isGlutenFree = newValue;
@@ -53,9 +53,9 @@ class _FilterScreenState extends State<FilterScreen> {
                   },
                 ),
                 SwitchListTile(
-                  title: Text('Lactose Free'),
+                  title: const Text('Lactose Free'),
                   value: _isLactoseFree,
-                  subtitle: Text('Include only lactose-free meals'),
+                  subtitle: const Text('Include only lactose-free meals'),
                   onChanged: (newValue) {
                     setState(() {
                       _isLactoseFree = newValue;
@@ -64,9 +64,9 @@ class _FilterScreenState extends State<FilterScreen> {
                   },
                 ),
                 SwitchListTile(
-                  title: Text('Vegan'),
+                  title: const Text('Vegan'),
                   value: _isVegan,
-                  subtitle: Text('Include only vegan meals'),
+                  subtitle: const Text('Include only vegan meals'),
                   onChanged: (newValue) {
                     setState(() {
                       _isVegan = newValue;
@@ -75,9 +75,9 @@ class _FilterScreenState extends State<FilterScreen> {
                   },
                 ),
                 SwitchListTile(
-                  title: Text('Vegeterian'),
+                  title: const Text('Vegeterian'),
                   value: _isVegeterian,
-                  subtitle: Text('Include only Vegeterian meals'),
+                  subtitle: const Text('Include only Vegeterian meals'),
                   onChanged: (newValue) {
                     setState(() {
                       _isVegeterian = newValue;
