@@ -5,7 +5,7 @@ export './models/category.dart';
 export './models/meal.dart';
 export './models/user_preferences.dart';
 
-// Screens
+// Screensss
 export 'screens/categories_screen.dart';
 export 'screens/meals_screen.dart';
 export 'screens/meal_details_screen.dart';
