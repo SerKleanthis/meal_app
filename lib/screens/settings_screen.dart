@@ -11,7 +11,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'Empty Screen yet',
+          'Settings screen is empty',
           style: Theme.of(context).textTheme.headline4,
         ),
       ),
