@@ -13,6 +13,7 @@ export 'screens/categories_screen.dart';
 export 'screens/tabs_screen.dart';
 export 'screens/favorites_screen.dart';
 export 'screens/filters_screen.dart';
+export 'screens/settings_screen.dart';
 
 // Widgets
 export './widgets/category_item.dart';

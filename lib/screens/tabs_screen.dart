@@ -21,23 +21,21 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _goToFilterScreen(BuildContext context) {
+    Navigator.of(context).pushNamed(FilterScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
-        // bottom: const TabBar(
-        //   tabs: [
-        //     Tab(
-        //       icon: Icon(Icons.category),
-        //       text: 'Categories',
-        //     ),
-        //     Tab(
-        //       icon: Icon(Icons.star),
-        //       text: 'Favorites',
-        //     ),
-        //   ],
-        // ),
+        actions: [
+          IconButton(
+            onPressed: () => _goToFilterScreen(context),
+            icon: const Icon(Icons.filter_list),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: MainDrawer(),
@@ -64,9 +62,6 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ],
       ),
-      //     TabBarView(
-      //   children: [InitialScreen(), FavoritesScreen()],
-      // ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/main.dart';
 import 'package:meal_app/screens/favorites_screen.dart';
+import 'package:meal_app/screens/settings_screen.dart';
 import '../importing_all.dart';
 
 class RouteGenerator {
@@ -34,6 +35,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => FavoritesScreen());
       case '/filters':
         return MaterialPageRoute(builder: (_) => FilterScreen());
+      case '/settings':
+        return MaterialPageRoute(builder: (_) => SettingsScreen());
       default:
         return _errorRoute();
     }

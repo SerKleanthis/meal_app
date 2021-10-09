@@ -3,12 +3,17 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../importing_all.dart';
 
-class MealDetailsScreen extends StatelessWidget {
+class MealDetailsScreen extends StatefulWidget {
   static const routeName = '/details';
   final Meal meal;
 
   const MealDetailsScreen(this.meal);
 
+  @override
+  State<MealDetailsScreen> createState() => _MealDetailsScreenState();
+}
+
+class _MealDetailsScreenState extends State<MealDetailsScreen> {
   Widget buildContainer(BuildContext context, Widget child) {
     return Container(
       decoration: BoxDecoration(
@@ -34,29 +39,57 @@ class MealDetailsScreen extends StatelessWidget {
     );
   }
 
-  void addToFavorites(String mealId) {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  void updateFavorites(String mealId) {
     // Get favorites
     List<String> favorites = UserPreferences.getFavorites() ?? [];
+    bool isFavorite = false;
 
-    favorites.add(mealId);
+    // Check if exists or not
+    setState(() {
+      if (favorites.contains(widget.meal.id)) {
+        favorites.remove(mealId);
+        isFavorite = false;
+      } else {
+        favorites.add(mealId);
+        isFavorite = true;
+      }
+    });
 
-    // Add a new one
+    // Initilize snackbar and sets the message
+    final snackBar = SnackBar(
+      content: isFavorite
+          ? const Text('Added to Favorites')
+          : const Text('Removed from Favorites'),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {},
+      ),
+    );
+
+    // Update user preferences favorites list and shows message
     UserPreferences.setFavorites(favorites.toSet().toList());
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
     log('${UserPreferences.getFavorites()!.length}');
   }
 
+  // Return true if the meal is already in favorites else false
   bool isInTheFavorites() {
     List<String> favorites = UserPreferences.getFavorites() ?? [];
 
-    return favorites.contains(meal.id);
+    return favorites.contains(widget.meal.id);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal.title),
+        title: Text(widget.meal.title),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -65,7 +98,7 @@ class MealDetailsScreen extends StatelessWidget {
               children: [
                 SizedBox(
                   child: Image.network(
-                    meal.imageUrl,
+                    widget.meal.imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.fill,
@@ -74,16 +107,12 @@ class MealDetailsScreen extends StatelessWidget {
                 Positioned(
                   height: 15,
                   right: 15,
-                  child: !isInTheFavorites()
-                      ? IconButton(
-                          onPressed: () => addToFavorites(meal.id),
-                          icon: const Icon(Icons.star_border),
-                        )
-                      : IconButton(
-                          //TODO: add option for remove from favorites
-                          onPressed: () {},
-                          icon: const Icon(Icons.star),
-                        ),
+                  child: IconButton(
+                    icon: !isInTheFavorites()
+                        ? const Icon(Icons.star_outline)
+                        : const Icon(Icons.star_outlined),
+                    onPressed: () => updateFavorites(widget.meal.id),
+                  ),
                 ),
               ],
             ),
@@ -95,11 +124,11 @@ class MealDetailsScreen extends StatelessWidget {
                   // shrinkWrap: true,
                   itemBuilder: (ctx, index) => Card(
                     child: Text(
-                      meal.ingredients[index],
+                      widget.meal.ingredients[index],
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
-                  itemCount: meal.ingredients.length,
+                  itemCount: widget.meal.ingredients.length,
                 ),
               ),
             ),
@@ -114,14 +143,14 @@ class MealDetailsScreen extends StatelessWidget {
                         child: Text('# ${(index + 1)} '),
                       ),
                       title: Text(
-                        meal.steps[index],
+                        widget.meal.steps[index],
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
                     const Divider(),
                   ],
                 ),
-                itemCount: meal.steps.length,
+                itemCount: widget.meal.steps.length,
               ),
             ),
           ],
@@ -129,7 +158,7 @@ class MealDetailsScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.delete),
-        onPressed: () => Navigator.of(context).pop(meal.id),
+        onPressed: () => Navigator.of(context).pop(widget.meal.id),
       ),
     );
   }

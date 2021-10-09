@@ -61,7 +61,7 @@ class MainDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3,
               ),
               onTap: () =>
-                  Navigator.of(context).pushNamed(FilterScreen.routeName),
+                  Navigator.of(context).pushNamed(SettingsScreen.routeName),
             ),
           ],
         ),
