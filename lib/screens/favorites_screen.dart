@@ -9,20 +9,40 @@ class FavoritesScreen extends StatefulWidget {
 }
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
-  final List<String> favorites = UserPreferences.getFavorites() ?? [];
+  // final List<String> favorites = UserPreferences.getFavorites() ?? [];
   List<Meal> mealsList = [];
 
-  void getMealList() {
+  @override
+  void initState() {
+    setState(() {
+      mealsList = getMealsList();
+    });
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    setState(() {
+      mealsList = getMealsList();
+    });
+    super.didChangeDependencies();
+  }
+
+  List<Meal> getMealsList() {
+    List<Meal> updatedMealsList = [];
     for (var meal in dummyMeals) {
-      if (favorites.contains(meal.id)) {
-        mealsList.add(meal);
+      if (UserPreferences.getFavorites()!.contains(meal.id)) {
+        updatedMealsList.add(meal);
       }
     }
+    return updatedMealsList;
   }
 
   void _removeItem(String id) {
     setState(() {
-      mealsList.removeWhere((meal) => meal.id == id);
+      List<String> favorites = UserPreferences.getFavorites() ?? [];
+      favorites.removeWhere((element) => element == id);
+      UserPreferences.setFavorites(favorites);
     });
   }
 
@@ -30,14 +50,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (ctx, index) {
-        getMealList();
         return MealItem(
           meal: mealsList[index],
           removeItem: _removeItem,
         );
       },
       //TODO: fix this, make it dynamic
-      itemCount: favorites.length,
+      itemCount: mealsList.length,
     );
   }
 }
