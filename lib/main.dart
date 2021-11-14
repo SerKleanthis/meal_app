@@ -20,8 +20,6 @@ class _MyAppState extends State<MyApp> {
     'vegeterian': false,
   };
 
-  void _setFilters(Map<String, bool> filters) {}
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
