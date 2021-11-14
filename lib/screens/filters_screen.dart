@@ -85,9 +85,16 @@ class _FilterScreenState extends State<FilterScreen> {
                     });
                   },
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('Set Filters'),
+                  ),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

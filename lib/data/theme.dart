@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 
 ThemeData myThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
-    primaryColor: Colors.red.shade300,
-    scaffoldBackgroundColor: Colors.amber.shade50,
+    primaryColor: Colors.white,
+    scaffoldBackgroundColor: Colors.white,
     colorScheme: ColorScheme.light(
-      primary: Colors.red.shade300,
-      onPrimary: Colors.white,
+      primary: Colors.cyan.shade400,
+      onPrimary: Colors.black,
       secondary: Colors.amber,
       error: Colors.red,
     ),
+    appBarTheme: const AppBarTheme(centerTitle: true),
     textTheme: ThemeData.light().textTheme.copyWith(
           bodyText1: const TextStyle(color: Colors.black),
-          bodyText2: const TextStyle(color: Colors.white),
+          bodyText2: const TextStyle(color: Colors.black),
           headline1: const TextStyle(
             // for titles
             color: Colors.white,
